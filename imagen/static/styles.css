@@ -1,0 +1,263 @@
+:root {
+  color-scheme: light;
+  --bg: #f3f6ff;
+  --surface: #ffffff;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #dbe2f4;
+  --shadow: 0 12px 30px rgba(79, 70, 229, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at top right, #e6ebff, var(--bg));
+  color: var(--text);
+}
+
+.page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.hero {
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.studio-form {
+  display: grid;
+  gap: 16px;
+}
+
+.showcase,
+.controls {
+  padding: 18px;
+}
+
+.showcase-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+#image {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.upload-drop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px dashed #b3c3f8;
+  background: linear-gradient(180deg, #fbfcff, #f3f6ff);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #e8edff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: #3f37c9;
+}
+
+.upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.upload-text strong {
+  font-size: 0.98rem;
+}
+
+.upload-text small {
+  color: var(--muted);
+}
+
+#generate-btn {
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--primary), #6d5df7);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.2s ease;
+}
+
+#generate-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(90deg, #4438ca, var(--primary-dark));
+}
+
+#generate-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  transform: none;
+}
+
+#status {
+  min-height: 1.4rem;
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.image-focus-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.focus-card {
+  background: #f9fbff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.focus-card h2 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.focus-card img {
+  width: 100%;
+  min-height: 280px;
+  max-height: 500px;
+  object-fit: contain;
+  border: 1px dashed #d3dbf5;
+  border-radius: 10px;
+  background: #eef2ff;
+}
+
+#dial-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.dial-group {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fafbff;
+}
+
+.dial-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dial-header label {
+  font-size: 0.92rem;
+}
+
+.dial-value {
+  width: 80px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: right;
+}
+
+.dial-slider {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 0;
+  color: #374151;
+}
+
+.download {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: #e9edff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  align-self: flex-start;
+  visibility: hidden;
+}
+
+.download.visible {
+  visibility: visible;
+}
+
+@media (max-width: 1040px) {
+  .image-focus-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding: 16px;
+  }
+
+  .showcase,
+  .controls {
+    padding: 14px;
+  }
+
+  .showcase-header {
+    grid-template-columns: 1fr;
+  }
+}
